@@ -1,0 +1,91 @@
+ <!doctype html>
+<html lang="en" ng-app="shopping">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>
+    <script src="js/index.js"></script>
+    <title>购物车</title>
+</head>
+<body ng-controller="mainCtrl">
+<nav class="navbar navbar-default navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">电器</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <!---->
+                        <span class="cir" ng-show="wares.length!==0">{{ge()}}</span>
+                        购物车
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <table class="table">
+                            <thead ng-show="wares.length!==0">
+                            <tr>
+                                <th></th>
+                                <th>名称</th>
+                                <th>单价</th>
+                                <th>数量</th>
+                                <th>总价</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="v in wares" id="wares">
+                                <td><img src="{{v.img}}" alt=""></td>
+                                <td>{{v.name}}</td>
+                                <td>￥{{v.price}}</td>
+                                <td>{{v.num}}
+                                    <div class="up-down">
+                                        <span class="caret down" ng-click="up($index)"></span>
+                                        <span class="caret" ng-click="down($index)"></span>
+                                    </div>
+                                </td>
+                                <td>￥{{v.price * v.num}}</td>
+                                <td><a href="#" class="btn btn-primary" role="button" ng-click="jian($index)">删除</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p ng-show="wares.length===0">
+                            亲，购物车空空的，快去挑选商品吧！
+                        </p>
+                        <p ng-show="wares.length!==0">
+                            您已选购 <span>{{ge()}}</span> 件商品，共计 <span>{{update()}}</span> 元
+                        </p>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="row">
+    <div class="col-sm-6 col-md-3" ng-repeat="v in goods">
+        <div class="thumbnail">
+            <img src="{{v.img}}" alt="...">
+            <div class="caption">
+                <h5>{{v.name}}</h5>
+                <p>￥{{v.price}}</p>
+                <p><a href="#" class="btn btn-primary" role="button" ng-click="jia(v.id)">加入购物车</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

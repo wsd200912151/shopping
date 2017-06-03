@@ -1,0 +1,79 @@
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+    text-decoration:none ;
+}
+/*导航条*/
+.navbar-collapse{
+    padding-right:60px;
+}
+.dropdown-menu{
+    width:400px;
+    display: block;
+}
+.dropdown-menu.block{
+    display:block;
+}
+.dropdown-menu p span{
+    color: rgba(189, 19, 24, 0.88);
+    font-weight:700;
+}
+.dropdown-toggle{
+    width:110px;
+}
+.dropdown-toggle .cir{
+    width:15px;
+    height:15px;
+    background:rgba(189, 19, 24, 0.88);
+    border-radius:50%;
+    line-height:15px;
+    text-align: center;
+    color:#fff;
+    display:inline-block;
+    font-size: 12px;
+}
+.dropdown-menu{
+    display: none;
+}
+.dropdown-menu.overflow{
+    display: block;
+}
+/*购物车*/
+#wares td img{
+    width:40px;
+    height:40px;
+}
+#wares td{
+    line-height:57px;
+}
+#wares .up-down{
+    width:10px;
+    height:15px;
+    float:right;
+    margin-top:21px;
+    margin-right:13px;
+}
+#wares .up-down span{
+    display: block;
+}
+#wares .up-down span.down{
+    border-top:0;
+    border-bottom:4px solid;
+    margin-bottom:5px;
+}
+/*商品*/
+.thumbnail{
+    margin:10px;
+}
+.thumbnail img{
+    width:220px;
+    height:220px;
+}
+.btn-primary{
+    background: rgba(189, 19, 24, 0.94);
+    border-color:rgba(189, 19, 24, 0.94);
+}
+h5,p{
+    text-align: center;
+}
